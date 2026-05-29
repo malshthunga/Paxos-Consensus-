@@ -1,0 +1,392 @@
+
+===========================================
+   Scenario 2: Concurrent Proposals
+   Description: M1 proposes M1, M8 proposes M8 concurrently
+===========================================
+
+[INFO] Compiling project...
+[INFO] Starting Scenario 2 (Concurrent Proposals)...
+
+=======================================
+ INITIALIZING PAXOS COUNCIL NETWORK
+=======================================
+
+Loaded network configuration for 9 members.
+
+===============================
+
+===============================
+ STARTING COUNCIL MEMBER M5
+===============================
+
+
+===============================
+ STARTING COUNCIL MEMBER M7
+===============================
+
+
+===============================
+ STARTING COUNCIL MEMBER M3
+===============================
+
+
+===============================
+ STARTING COUNCIL MEMBER M2
+===============================
+
+
+===============================
+ STARTING COUNCIL MEMBER M8
+===============================
+
+
+===============================
+ STARTING COUNCIL MEMBER M1
+===============================
+
+
+===============================
+ STARTING COUNCIL MEMBER M6
+===============================
+
+
+===============================
+ STARTING COUNCIL MEMBER M9
+===============================
+
+ STARTING COUNCIL MEMBER M4
+===============================
+
+[21:51:36.679] [M4]  started on port9004 (standard)
+[21:51:36.679] [M3]  started on port9003 (failure)
+[21:51:36.679] [M1]  started on port9001 (reliable)
+[21:51:36.679] [M9]  started on port9009 (standard)
+[21:51:36.679] [M2]  started on port9002 (latent)
+[21:51:36.679] [M5]  started on port9005 (standard)
+[21:51:36.679] [M8]  started on port9008 (standard)
+[21:51:36.680] [M6]  started on port9006 (standard)
+[21:51:36.680] [M7]  started on port9007 (standard)
+
+=====================================
+ SCENARIO 2: CONCURRENT PROPOSALS
+=====================================
+
+[21:51:38.672] [SYSTEM] M1 proposes M1 and M8 proposes M8 concurrently
+[21:51:38.676] [M8] Initiating proposal for M8 [proposal 28]
+[21:51:38.676] [M1] Initiating proposal for M1 [proposal 11]
+[21:51:38.712] [M8] Sent message to M1: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.713] [M8] Sent message to M2: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.714] [M8] Sent message to M3: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.715] [M8] Sent message to M4: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.715] [M8] Sent message to M5: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.715] [M8] Sent message to M6: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.716] [M8] Sent message to M7: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.717] [M8] Sent message to M9: {"type":"PREPARE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:38.760] [M1] Sent message to M2: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:38.769] [M7] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.769] [M4] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.769] [M5] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.769] [M9] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.769] [M6] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.771] [M4] Received PREPARE from M8 [n=28, v=M8]
+[21:51:38.771] [M9] Received PREPARE from M8 [n=28, v=M8]
+[21:51:38.771] [M7] Received PREPARE from M8 [n=28, v=M8]
+[21:51:38.771] [M6] Received PREPARE from M8 [n=28, v=M8]
+[21:51:38.771] [M5] Received PREPARE from M8 [n=28, v=M8]
+[21:51:38.772] [M4] Promising proposal n=28 (prevAccepted=-1, value=M8)
+[21:51:38.772] [M6] Promising proposal n=28 (prevAccepted=-1, value=M8)
+[21:51:38.772] [M5] Promising proposal n=28 (prevAccepted=-1, value=M8)
+[21:51:38.772] [M7] Promising proposal n=28 (prevAccepted=-1, value=M8)
+[21:51:38.772] [M9] Promising proposal n=28 (prevAccepted=-1, value=M8)
+[21:51:38.773] [M6] Sent message to M8: {"type":"PROMISE","sender":"M6","proposalNum":28,"candidate":"M8"}
+[21:51:38.773] [M9] Sent message to M8: {"type":"PROMISE","sender":"M9","proposalNum":28,"candidate":"M8"}
+[21:51:38.773] [M7] Sent message to M8: {"type":"PROMISE","sender":"M7","proposalNum":28,"candidate":"M8"}
+[21:51:38.773] [M5] Sent message to M8: {"type":"PROMISE","sender":"M5","proposalNum":28,"candidate":"M8"}
+[21:51:38.773] [M4] Sent message to M8: {"type":"PROMISE","sender":"M4","proposalNum":28,"candidate":"M8"}
+[21:51:38.811] [M1] Sent message to M3: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:38.814] [M1] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.814] [M1] Received PREPARE from M8 [n=28, v=M8]
+[21:51:38.815] [M1] Promising proposal n=28 (prevAccepted=-1, value=M8)
+[21:51:38.825] [M8] Received message: [TYPE:PROMISE | SENDER:M7 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.827] [M8] Received PROMISE from M7 for proposal 28 (1 / 5)
+[21:51:38.863] [M1] Sent message to M4: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:38.867] [M1] Sent message to M8: {"type":"PROMISE","sender":"M1","proposalNum":28,"candidate":"M8"}
+[21:51:38.878] [M8] Received message: [TYPE:PROMISE | SENDER:M4 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.878] [M8] Received PROMISE from M4 for proposal 28 (2 / 5)
+[21:51:38.914] [M4] Received message: [TYPE:PREPARE | SENDER:M1 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:38.915] [M4] Received PREPARE from M1 [n=11, v=M1]
+[21:51:38.915] [M1] Sent message to M5: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:38.916] [M4] Ignored PREPARE from M1 (proposal 11 < promised 28)
+[21:51:38.931] [M8] Received message: [TYPE:PROMISE | SENDER:M6 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.931] [M8] Received PROMISE from M6 for proposal 28 (3 / 5)
+[21:51:38.966] [M5] Received message: [TYPE:PREPARE | SENDER:M1 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:38.966] [M5] Received PREPARE from M1 [n=11, v=M1]
+[21:51:38.966] [M5] Ignored PREPARE from M1 (proposal 11 < promised 28)
+[21:51:38.969] [M1] Sent message to M6: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:38.983] [M8] Received message: [TYPE:PROMISE | SENDER:M9 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:38.983] [M8] Received PROMISE from M9 for proposal 28 (4 / 5)
+[21:51:39.020] [M6] Received message: [TYPE:PREPARE | SENDER:M1 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:39.020] [M6] Received PREPARE from M1 [n=11, v=M1]
+[21:51:39.020] [M6] Ignored PREPARE from M1 (proposal 11 < promised 28)
+[21:51:39.021] [M1] Sent message to M7: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:39.035] [M8] Received message: [TYPE:PROMISE | SENDER:M5 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.035] [M8] Received PROMISE from M5 for proposal 28 (5 / 5)
+[21:51:39.036] [M8] Quorum reached ? sending ACCEPT_REQUEST for M8
+[21:51:39.037] [M8] Sent message to M1: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.038] [M8] Sent message to M2: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.038] [M8] Sent message to M3: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.038] [M8] Sent message to M4: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.039] [M8] Sent message to M5: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.040] [M8] Sent message to M6: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.040] [M8] Sent message to M7: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.041] [M8] Sent message to M9: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.072] [M7] Received message: [TYPE:PREPARE | SENDER:M1 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:39.073] [M7] Received PREPARE from M1 [n=11, v=M1]
+[21:51:39.073] [M7] Ignored PREPARE from M1 (proposal 11 < promised 28)
+[21:51:39.073] [M1] Sent message to M8: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:39.089] [M4] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.089] [M4] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.090] [M4] Accepted value 'M8' with proposal n=28
+[21:51:39.090] [M5] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.090] [M5] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.090] [M5] Accepted value 'M8' with proposal n=28
+[21:51:39.092] [M4] Sent message to M8: {"type":"ACCEPTED","sender":"M4","proposalNum":28,"candidate":"M8"}
+[21:51:39.092] [M5] Sent message to M8: {"type":"ACCEPTED","sender":"M5","proposalNum":28,"candidate":"M8"}
+[21:51:39.092] [M9] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.092] [M9] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.092] [M6] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.092] [M9] Accepted value 'M8' with proposal n=28
+[21:51:39.092] [M8] Received message: [TYPE:PROMISE | SENDER:M1 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.092] [M8] Received PROMISE from M1 for proposal 28 (6 / 5)
+[21:51:39.092] [M8] Quorum reached ? sending ACCEPT_REQUEST for M8
+[21:51:39.092] [M6] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.092] [M6] Accepted value 'M8' with proposal n=28
+[21:51:39.093] [M8] Sent message to M1: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.093] [M6] Sent message to M8: {"type":"ACCEPTED","sender":"M6","proposalNum":28,"candidate":"M8"}
+[21:51:39.093] [M9] Sent message to M8: {"type":"ACCEPTED","sender":"M9","proposalNum":28,"candidate":"M8"}
+[21:51:39.094] [M8] Sent message to M2: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.095] [M8] Sent message to M3: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.096] [M8] Sent message to M4: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.096] [M8] Sent message to M5: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.096] [M8] Sent message to M6: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.097] [M8] Sent message to M7: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.097] [M8] Sent message to M9: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.123] [M7] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.124] [M7] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.124] [M7] Accepted value 'M8' with proposal n=28
+[21:51:39.124] [M1] Sent message to M9: {"type":"PREPARE","sender":"M1","proposalNum":11,"candidate":"M1"}
+[21:51:39.125] [M7] Sent message to M8: {"type":"ACCEPTED","sender":"M7","proposalNum":28,"candidate":"M8"}
+[21:51:39.138] [M1] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.138] [M1] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.138] [M1] Accepted value 'M8' with proposal n=28
+[21:51:39.146] [M4] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.146] [M4] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.146] [M4] Accepted value 'M8' with proposal n=28
+[21:51:39.147] [M5] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.147] [M6] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.147] [M5] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.147] [M6] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.147] [M5] Accepted value 'M8' with proposal n=28
+[21:51:39.147] [M6] Accepted value 'M8' with proposal n=28
+[21:51:39.148] [M4] Sent message to M8: {"type":"ACCEPTED","sender":"M4","proposalNum":28,"candidate":"M8"}
+[21:51:39.148] [M8] Received message: [TYPE:PREPARE | SENDER:M1 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:39.148] [M8] Received PREPARE from M1 [n=11, v=M1]
+[21:51:39.148] [M8] Promising proposal n=11 (prevAccepted=-1, value=M1)
+[21:51:39.149] [M6] Sent message to M8: {"type":"ACCEPTED","sender":"M6","proposalNum":28,"candidate":"M8"}
+[21:51:39.149] [M5] Sent message to M8: {"type":"ACCEPTED","sender":"M5","proposalNum":28,"candidate":"M8"}
+[21:51:39.149] [M8] Sent message to M1: {"type":"PROMISE","sender":"M8","proposalNum":11,"candidate":"M1"}
+[21:51:39.149] [M9] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.149] [M9] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.149] [M9] Accepted value 'M8' with proposal n=28
+[21:51:39.150] [M9] Sent message to M8: {"type":"ACCEPTED","sender":"M9","proposalNum":28,"candidate":"M8"}
+[21:51:39.177] [M7] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.177] [M7] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.178] [M7] Accepted value 'M8' with proposal n=28
+[21:51:39.178] [M7] Sent message to M8: {"type":"ACCEPTED","sender":"M7","proposalNum":28,"candidate":"M8"}
+[21:51:39.191] [M1] Sent message to M8: {"type":"ACCEPTED","sender":"M1","proposalNum":28,"candidate":"M8"}
+[21:51:39.201] [M8] Received message: [TYPE:ACCEPTED | SENDER:M4 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.202] [M9] Received message: [TYPE:PREPARE | SENDER:M1 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:39.202] [M9] Received PREPARE from M1 [n=11, v=M1]
+[21:51:39.202] [M9] Ignored PREPARE from M1 (proposal 11 < promised 28)
+[21:51:39.203] [M8] Learner registered ACCEPTED from M4 for candidate M8 (1 votes)
+[21:51:39.255] [M8] Received message: [TYPE:ACCEPTED | SENDER:M5 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.255] [M8] Learner registered ACCEPTED from M5 for candidate M8 (2 votes)
+[21:51:39.293] [M1] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.293] [M1] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:39.293] [M1] Accepted value 'M8' with proposal n=28
+[21:51:39.306] [M8] Received message: [TYPE:ACCEPTED | SENDER:M6 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.306] [M8] Learner registered ACCEPTED from M6 for candidate M8 (3 votes)
+[21:51:39.346] [M1] Sent message to M8: {"type":"ACCEPTED","sender":"M1","proposalNum":28,"candidate":"M8"}
+[21:51:39.358] [M8] Received message: [TYPE:ACCEPTED | SENDER:M9 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.359] [M8] Learner registered ACCEPTED from M9 for candidate M8 (4 votes)
+[21:51:39.410] [M8] Received message: [TYPE:ACCEPTED | SENDER:M7 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.410] [M8] Learner registered ACCEPTED from M7 for candidate M8 (5 votes)
+[21:51:39.411] [M8] ? CONSENSUS REACHED ? M8 has been elected Council President! ?
+[21:51:39.413] [M8] Sent message to M1: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.414] [M8] Sent message to M2: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.415] [M8] Sent message to M3: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.417] [M8] Sent message to M4: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.417] [M8] Sent message to M5: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.418] [M8] Sent message to M6: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.419] [M8] Sent message to M7: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.419] [M8] Sent message to M9: {"type":"DECIDE","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:39.447] [M1] Received message: [TYPE:PROMISE | SENDER:M8 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:39.447] [M1] Received PROMISE from M8 for proposal 11 (1 / 5)
+[21:51:39.468] [M5] Received message: [TYPE:DECIDE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.468] [M4] Received message: [TYPE:DECIDE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.469] [M5] Learned final consensus from M8: M8
+[21:51:39.469] [M4] Learned final consensus from M8: M8
+[21:51:39.469] [M6] Received message: [TYPE:DECIDE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.469] [M6] Learned final consensus from M8: M8
+[21:51:39.470] [M9] Received message: [TYPE:DECIDE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.470] [M9] Learned final consensus from M8: M8
+[21:51:39.470] [M7] Received message: [TYPE:DECIDE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.470] [M7] Learned final consensus from M8: M8
+[21:51:39.472] [M8] Received message: [TYPE:ACCEPTED | SENDER:M4 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.472] [M8] Learner registered ACCEPTED from M4 for candidate M8 (5 votes)
+[21:51:39.524] [M8] Received message: [TYPE:ACCEPTED | SENDER:M6 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.524] [M8] Learner registered ACCEPTED from M6 for candidate M8 (5 votes)
+[21:51:39.548] [M1] Received message: [TYPE:DECIDE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.549] [M1] Learned final consensus from M8: M8
+[21:51:39.575] [M8] Received message: [TYPE:ACCEPTED | SENDER:M5 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.575] [M8] Learner registered ACCEPTED from M5 for candidate M8 (5 votes)
+[21:51:39.626] [M8] Received message: [TYPE:ACCEPTED | SENDER:M9 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.627] [M8] Learner registered ACCEPTED from M9 for candidate M8 (5 votes)
+[21:51:39.678] [M8] Received message: [TYPE:ACCEPTED | SENDER:M7 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.678] [M8] Learner registered ACCEPTED from M7 for candidate M8 (5 votes)
+[21:51:39.729] [M8] Received message: [TYPE:ACCEPTED | SENDER:M1 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.729] [M8] Learner registered ACCEPTED from M1 for candidate M8 (6 votes)
+[21:51:39.740] [M3] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.740] [M3] Received PREPARE from M8 [n=28, v=M8]
+[21:51:39.741] [M3] Promising proposal n=28 (prevAccepted=-1, value=M8)
+simulating failure: Node failure will become unresponsive
+[21:51:39.782] [M8] Received message: [TYPE:ACCEPTED | SENDER:M1 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:39.783] [M8] Learner registered ACCEPTED from M1 for candidate M8 (6 votes)
+[21:51:40.857] [M2] Received message: [TYPE:PREPARE | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:40.858] [M2] Received PREPARE from M8 [n=28, v=M8]
+[21:51:40.858] [M2] Promising proposal n=28 (prevAccepted=-1, value=M8)
+[21:51:42.020] [M2] Sent message to M8: {"type":"PROMISE","sender":"M2","proposalNum":28,"candidate":"M8"}
+[21:51:42.071] [M8] Received message: [TYPE:PROMISE | SENDER:M2 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.072] [M8] Received PROMISE from M2 for proposal 28 (7 / 5)
+[21:51:42.072] [M8] Quorum reached ? sending ACCEPT_REQUEST for M8
+[21:51:42.074] [M8] Sent message to M1: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.075] [M8] Sent message to M2: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.076] [M8] Sent message to M3: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.077] [M8] Sent message to M4: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.077] [M8] Sent message to M5: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.078] [M8] Sent message to M6: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.078] [M8] Sent message to M7: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.079] [M8] Sent message to M9: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:42.127] [M4] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.128] [M4] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:42.128] [M4] Accepted value 'M8' with proposal n=28
+[21:51:42.128] [M6] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.128] [M6] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:42.128] [M6] Accepted value 'M8' with proposal n=28
+[21:51:42.129] [M5] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.129] [M4] Sent message to M8: {"type":"ACCEPTED","sender":"M4","proposalNum":28,"candidate":"M8"}
+[21:51:42.129] [M5] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:42.129] [M9] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.129] [M5] Accepted value 'M8' with proposal n=28
+[21:51:42.130] [M9] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:42.130] [M9] Accepted value 'M8' with proposal n=28
+[21:51:42.130] [M7] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.130] [M6] Sent message to M8: {"type":"ACCEPTED","sender":"M6","proposalNum":28,"candidate":"M8"}
+[21:51:42.130] [M7] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:42.130] [M7] Accepted value 'M8' with proposal n=28
+[21:51:42.131] [M5] Sent message to M8: {"type":"ACCEPTED","sender":"M5","proposalNum":28,"candidate":"M8"}
+[21:51:42.131] [M9] Sent message to M8: {"type":"ACCEPTED","sender":"M9","proposalNum":28,"candidate":"M8"}
+[21:51:42.131] [M7] Sent message to M8: {"type":"ACCEPTED","sender":"M7","proposalNum":28,"candidate":"M8"}
+[21:51:42.175] [M1] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.175] [M1] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:42.175] [M1] Accepted value 'M8' with proposal n=28
+[21:51:42.180] [M8] Received message: [TYPE:ACCEPTED | SENDER:M4 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.180] [M8] Learner registered ACCEPTED from M4 for candidate M8 (6 votes)
+[21:51:42.227] [M1] Sent message to M8: {"type":"ACCEPTED","sender":"M1","proposalNum":28,"candidate":"M8"}
+[21:51:42.232] [M8] Received message: [TYPE:ACCEPTED | SENDER:M6 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.232] [M8] Learner registered ACCEPTED from M6 for candidate M8 (6 votes)
+[21:51:42.284] [M8] Received message: [TYPE:ACCEPTED | SENDER:M5 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.284] [M8] Learner registered ACCEPTED from M5 for candidate M8 (6 votes)
+[21:51:42.335] [M8] Received message: [TYPE:ACCEPTED | SENDER:M9 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.336] [M8] Learner registered ACCEPTED from M9 for candidate M8 (6 votes)
+[21:51:42.389] [M8] Received message: [TYPE:ACCEPTED | SENDER:M7 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.389] [M8] Learner registered ACCEPTED from M7 for candidate M8 (6 votes)
+[21:51:42.440] [M8] Received message: [TYPE:ACCEPTED | SENDER:M1 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:42.441] [M8] Learner registered ACCEPTED from M1 for candidate M8 (6 votes)
+[21:51:44.743] [M3] Sent message to M8: {"type":"PROMISE","sender":"M3","proposalNum":28,"candidate":"M8"}
+[21:51:44.794] [M8] Received message: [TYPE:PROMISE | SENDER:M3 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.794] [M8] Received PROMISE from M3 for proposal 28 (8 / 5)
+simulating failure: Node failure will become unresponsive
+[21:51:44.795] [M8] Quorum reached ? sending ACCEPT_REQUEST for M8
+[21:51:44.796] [M8] Sent message to M1: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.798] [M8] Sent message to M2: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.799] [M8] Sent message to M3: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.800] [M8] Sent message to M4: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.802] [M8] Sent message to M5: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.803] [M8] Sent message to M6: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.805] [M8] Sent message to M7: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.806] [M8] Sent message to M9: {"type":"ACCEPT_REQUEST","sender":"M8","proposalNum":28,"candidate":"M8"}
+[21:51:44.821] [M2] Received message: [TYPE:PREPARE | SENDER:M1 | PROPOSAL:11 | CANDIDATE:M1]
+[21:51:44.822] [M2] Received PREPARE from M1 [n=11, v=M1]
+[21:51:44.822] [M2] Ignored PREPARE from M1 (proposal 11 < promised 28)
+[21:51:44.854] [M5] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.854] [M4] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.854] [M4] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:44.854] [M4] Accepted value 'M8' with proposal n=28
+[21:51:44.854] [M5] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:44.854] [M5] Accepted value 'M8' with proposal n=28
+[21:51:44.856] [M4] Sent message to M8: {"type":"ACCEPTED","sender":"M4","proposalNum":28,"candidate":"M8"}
+[21:51:44.856] [M7] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.856] [M5] Sent message to M8: {"type":"ACCEPTED","sender":"M5","proposalNum":28,"candidate":"M8"}
+[21:51:44.856] [M6] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.856] [M7] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:44.857] [M6] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:44.857] [M7] Accepted value 'M8' with proposal n=28
+[21:51:44.857] [M6] Accepted value 'M8' with proposal n=28
+[21:51:44.857] [M9] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.857] [M9] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:44.857] [M9] Accepted value 'M8' with proposal n=28
+[21:51:44.858] [M9] Sent message to M8: {"type":"ACCEPTED","sender":"M9","proposalNum":28,"candidate":"M8"}
+[21:51:44.858] [M7] Sent message to M8: {"type":"ACCEPTED","sender":"M7","proposalNum":28,"candidate":"M8"}
+[21:51:44.859] [M6] Sent message to M8: {"type":"ACCEPTED","sender":"M6","proposalNum":28,"candidate":"M8"}
+[21:51:44.899] [M1] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.900] [M1] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:44.900] [M1] Accepted value 'M8' with proposal n=28
+[21:51:44.906] [M8] Received message: [TYPE:ACCEPTED | SENDER:M5 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.906] [M8] Learner registered ACCEPTED from M5 for candidate M8 (6 votes)
+[21:51:44.952] [M1] Sent message to M8: {"type":"ACCEPTED","sender":"M1","proposalNum":28,"candidate":"M8"}
+[21:51:44.959] [M8] Received message: [TYPE:ACCEPTED | SENDER:M4 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:44.959] [M8] Learner registered ACCEPTED from M4 for candidate M8 (6 votes)
+[21:51:45.011] [M8] Received message: [TYPE:ACCEPTED | SENDER:M7 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:45.012] [M8] Learner registered ACCEPTED from M7 for candidate M8 (6 votes)
+[21:51:45.063] [M8] Received message: [TYPE:ACCEPTED | SENDER:M9 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:45.063] [M8] Learner registered ACCEPTED from M9 for candidate M8 (6 votes)
+[21:51:45.115] [M8] Received message: [TYPE:ACCEPTED | SENDER:M6 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:45.116] [M8] Learner registered ACCEPTED from M6 for candidate M8 (6 votes)
+[21:51:45.167] [M8] Received message: [TYPE:ACCEPTED | SENDER:M1 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:45.167] [M8] Learner registered ACCEPTED from M1 for candidate M8 (6 votes)
+[21:51:46.754] [M2] Received message: [TYPE:ACCEPT_REQUEST | SENDER:M8 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:46.754] [M2] Received ACCEPT_REQUEST from M8 [n=28, v=M8]
+[21:51:46.754] [M2] Accepted value 'M8' with proposal n=28
+[21:51:49.373] [M2] Sent message to M8: {"type":"ACCEPTED","sender":"M2","proposalNum":28,"candidate":"M8"}
+[21:51:49.424] [M8] Received message: [TYPE:ACCEPTED | SENDER:M2 | PROPOSAL:28 | CANDIDATE:M8]
+[21:51:49.424] [M8] Learner registered ACCEPTED from M2 for candidate M8 (7 votes)
+[21:51:49.795] [M3]  simulating failure, shutting down...
+
+==========================================================
+ CONSENSUS: ALL MEMBERS AGREED — PRESIDENT ELECTED: M8
+==========================================================
+
+==================================================
+CONSENSUS: M8 has been elected Council President!
+==================================================
+
+=========================
+ SCENARIO 2 COMPLETED
+=========================
+
+
+Consensus reached successfully! Paxos resolved the conflict.
+
+[INFO] Logs saved to logs/concurrent_scenario_output.txt
+[INFO] Scenario 2 completed at Sun Oct 19 21:51:51 CADT 2025
